@@ -6,20 +6,20 @@ import java.util.HashMap;
 
 import com.gynt.lwprotojson.LWProtoJson;
 import com.gynt.lwprotojson.LWProtoJson.Serializer;
-import com.gynt.lwprotojson.LWProtoJson.lwproto;
+import com.gynt.lwprotojson.LWProtoJson.Lwprotojson;
 
 public class Example {
 
-	@lwproto
+	@Lwprotojson
 	private String name = "Hello world!";
 
-	@lwproto
+	@Lwprotojson
 	public int age = 100;
 
-	@lwproto
+	@Lwprotojson
 	public ArrayList<String> list = new ArrayList<>(Arrays.asList("a","b","c"));
 
-	@lwproto
+	@Lwprotojson
 	public HashMap<String, Integer> map = new HashMap<String, Integer>();
 	{
 		map.put("example1", 1);
@@ -29,10 +29,10 @@ public class Example {
 	public static class AnotherExample {
 		public int VERSION = 4;
 
-		@lwproto(from = 1, until = 4)
+		@Lwprotojson(from = 1, until = 4)
 		public String name = "Bye world!";
 
-		@lwproto(from = 0)
+		@Lwprotojson(from = 0)
 		public int age = 90;
 	}
 

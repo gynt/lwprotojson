@@ -24,7 +24,7 @@ import org.json.JSONObject;
 public abstract class LWProtoJson {
 
 	@Retention(RetentionPolicy.RUNTIME)
-	public static @interface lwproto {
+	public static @interface Lwprotojson {
 		public int from() default 0;
 
 		public int until() default Integer.MAX_VALUE;
@@ -171,7 +171,7 @@ public abstract class LWProtoJson {
 
 			ArrayList<Field> temp = new ArrayList<>();
 			for (Field f : c.getDeclaredFields()) {
-				if (f.getDeclaredAnnotation(lwproto.class) == null)
+				if (f.getDeclaredAnnotation(Lwprotojson.class) == null)
 					continue;
 				f.setAccessible(true);
 				temp.add(f);
@@ -251,7 +251,7 @@ public abstract class LWProtoJson {
 			result.put("version", version);
 
 			for (Field f : fields) {
-				lwproto anno = f.getDeclaredAnnotation(lwproto.class);
+				Lwprotojson anno = f.getDeclaredAnnotation(Lwprotojson.class);
 				if (version < anno.from() || version > anno.until())
 					continue;
 
@@ -282,7 +282,7 @@ public abstract class LWProtoJson {
 			int version = j.getInt("version");
 
 			for (Field f : fields) {
-				lwproto anno = f.getDeclaredAnnotation(lwproto.class);
+				Lwprotojson anno = f.getDeclaredAnnotation(Lwprotojson.class);
 				if (version < anno.from() || version > anno.until())
 					continue;
 				deserializeField(f, t, j);

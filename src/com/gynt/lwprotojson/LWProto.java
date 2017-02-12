@@ -1,4 +1,4 @@
-package com.gynt.lwproto;
+package com.gynt.lwprotojson;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

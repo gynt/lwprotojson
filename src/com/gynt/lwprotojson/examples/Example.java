@@ -1,12 +1,12 @@
-package com.gynt.lwproto.examples;
+package com.gynt.lwprotojson.examples;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import com.gynt.lwproto.LWProto;
-import com.gynt.lwproto.LWProto.Serializer;
-import com.gynt.lwproto.LWProto.lwproto;
+import com.gynt.lwprotojson.LWProto;
+import com.gynt.lwprotojson.LWProto.Serializer;
+import com.gynt.lwprotojson.LWProto.lwproto;
 
 public class Example {
 
@@ -18,7 +18,7 @@ public class Example {
 
 	@lwproto
 	public ArrayList<String> list = new ArrayList<>(Arrays.asList("a","b","c"));
-	
+
 	@lwproto
 	public HashMap<String, Integer> map = new HashMap<String, Integer>();
 	{

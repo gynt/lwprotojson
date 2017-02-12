@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import com.gynt.lwprotojson.LWProto;
-import com.gynt.lwprotojson.LWProto.Serializer;
-import com.gynt.lwprotojson.LWProto.lwproto;
+import com.gynt.lwprotojson.LWProtoJson;
+import com.gynt.lwprotojson.LWProtoJson.Serializer;
+import com.gynt.lwprotojson.LWProtoJson.lwproto;
 
 public class Example {
 
@@ -41,11 +41,12 @@ public class Example {
 		Serializer<Example> s = new Serializer<Example>(Example.class);
 
 		Example e = new Example();
+		System.out.println(s.serialize(e));
 		System.out.println(s.deserialize(s.serialize(e)).name);
 		System.out.println(s.deserialize(s.serialize(e)).list.toString());
 		System.out.println(s.deserialize(s.serialize(e)).map.toString());
 
-		LWProto.register(Example.class, s);
+		LWProtoJson.register(Example.class, s);
 		Serializer<Example[]> q = new Serializer<Example[]>(Example[].class);
 		Example e1 = new Example();
 		Example e2 = new Example();
